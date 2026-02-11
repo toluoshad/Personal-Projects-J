@@ -10,7 +10,7 @@
    <header>
     <nav>
         <div class="nav-container">
-            <div class="logo">DevPortfolio</div>
+            <div class="logo">Tolu</div>
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -29,38 +29,137 @@
         <a href="#projects" class="btn">View My Work</a>
     </div>
 </section>
-    
-<section id="about" class="about">
+
+<section id="about" class="section about">
   <div class="container">
-    <h2>About Me</h2>
-    <p>
-      I am a graduate software developer with a strong interest in frontend development
-      and building clean, accessible user interfaces. I enjoy turning ideas into
-      functional, well-structured web applications and continuously improving my skills.
-    </p>
+    <div class="about-grid">
+      <div class="about-text">
+        <h2>About</h2>
+        <p>
+          I’m a graduate software developer with a focus on building clean, responsive,
+          user-friendly web experiences. I enjoy turning ideas into structured interfaces
+          and improving my skills through consistent practice and projects.
+        </p>
+        <p>
+          I’m currently looking for an entry-level or graduate role where I can contribute
+          to real products, learn from experienced developers, and grow within a collaborative team.
+        </p>
 
-    <p>
-      I am currently seeking an entry-level or graduate role where I can contribute,
-      learn from experienced developers, and grow as part of a collaborative team.
-    </p>
-  </div>
-</section>
+        <div class="about-actions">
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn btn-secondary" href="#contact">Contact Me</a>
+        </div>
+      </div>
 
-<section id="projects" class="projects">
-  <div class="container">
-    <h2>Projects</h2>
+      <div class="about-cards">
+        <div class="card">
+          <h3>What I’m good at</h3>
+          <ul>
+            <li>Building responsive layouts</li>
+            <li>Writing clean, readable code</li>
+            <li>Learning quickly and iterating</li>
+          </ul>
+        </div>
 
-    <div class="project-card">
-      <h3>Portfolio Website</h3>
-      <p>
-        A responsive personal portfolio built using HTML, CSS, and JavaScript
-        to showcase my projects and skills.
-      </p>
-      <p><strong>Tech:</strong> HTML, CSS, JavaScript</p>
-      <a href="#" target="_blank">View Project</a>
+        <div class="card">
+          <h3>Tech I use</h3>
+          <ul class="tags">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>Git/GitHub</li>
+            <li>Responsive Design</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+
+<section id="projects" class="section projects">
+  <div class="container">
+    <div class="section-head">
+      <h2>Projects</h2>
+      <p>
+        A selection of projects that show my skills in building responsive interfaces,
+        writing clean code, and solving problems.
+      </p>
+    </div>
+
+    <div class="projects-grid">
+      <!-- Project 1 -->
+      <article class="project-card">
+        <div class="project-top">
+          <h3>Portfolio Website</h3>
+          <span class="pill">Featured</span>
+        </div>
+        <p class="project-desc">
+          A responsive portfolio site to showcase my work, skills, and contact details.
+          Built with a clean layout, reusable sections, and smooth navigation.
+        </p>
+
+        <ul class="project-tags">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+        </ul>
+
+        <div class="project-links">
+          <a class="btn btn-secondary" href="#" target="_blank" rel="noreferrer">Live Demo</a>
+          <a class="btn" href="#" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="project-card">
+        <div class="project-top">
+          <h3>To-Do App</h3>
+          <span class="pill">JavaScript</span>
+        </div>
+        <p class="project-desc">
+          A simple task manager with add/remove/complete actions and local storage to
+          persist tasks between sessions.
+        </p>
+
+        <ul class="project-tags">
+          <li>JavaScript</li>
+          <li>DOM</li>
+          <li>LocalStorage</li>
+        </ul>
+
+        <div class="project-links">
+          <a class="btn btn-secondary" href="#" target="_blank" rel="noreferrer">Live Demo</a>
+          <a class="btn" href="#" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="project-card">
+        <div class="project-top">
+          <h3>API Search Page</h3>
+          <span class="pill">API</span>
+        </div>
+        <p class="project-desc">
+          A search interface that fetches and displays results from a public API with
+          loading states, error handling, and basic filtering.
+        </p>
+
+        <ul class="project-tags">
+          <li>Fetch API</li>
+          <li>Async</li>
+          <li>Error Handling</li>
+        </ul>
+
+        <div class="project-links">
+          <a class="btn btn-secondary" href="#" target="_blank" rel="noreferrer">Live Demo</a>
+          <a class="btn" href="#" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
 
 <section class="skills">
   <div class="container">

@@ -41,6 +41,28 @@ a {
   --shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
 }
 
+/* =========================
+   Sections
+========================= */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 4rem var(--pad);
+}
+
+.section h2 {
+  margin: 0 0 1rem;
+  font-size: 1.6rem;
+  letter-spacing: -0.02em;
+}
+
+.section p {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  max-width: 65ch;
+}
+
+
 .nav-container,
 .hero-content {
   max-width: var(--container);
@@ -97,6 +119,168 @@ nav {
   color: #0f172a;
   background: var(--bg-soft);
 }
+
+/* =========================
+   About
+========================= */
+.about {
+  background: #ffffff;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.about-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+}
+
+/* Secondary button */
+.btn.btn-secondary {
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid var(--border);
+  box-shadow: none;
+}
+
+.btn.btn-secondary:hover {
+  transform: translateY(-2px);
+  opacity: 1;
+}
+
+/* Cards */
+.about-cards {
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 0 6px 18px rgba(2, 6, 23, 0.05);
+}
+
+.card h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+
+.card ul {
+  margin: 0;
+  padding-left: 1.15rem;
+  color: var(--muted);
+}
+
+/* Tags list */
+.tags {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.tags li {
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg-soft);
+  color: #0f172a;
+  font-size: 0.85rem;
+}
+
+/* =========================
+   Projects
+========================= */
+.projects {
+  background: var(--bg-soft);
+}
+
+.section-head {
+  margin-bottom: 1.5rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.project-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 0 6px 18px rgba(2, 6, 23, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.project-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.project-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+
+.pill {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg-soft);
+  color: #0f172a;
+  white-space: nowrap;
+}
+
+.project-desc {
+  margin: 0;
+  color: var(--muted);
+}
+
+.project-tags {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-tags li {
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #ffffff;
+  color: #0f172a;
+  font-size: 0.82rem;
+}
+
+.project-links {
+  margin-top: auto;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+
 
 /* =========================
    Hero
@@ -163,6 +347,30 @@ nav {
     flex-direction: column;
     align-items: flex-start;
   }
+
+  @media (max-width: 720px) {
+  .container {
+    padding: 3rem var(--pad);
+  }
+
+  @media (max-width: 980px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 
   .nav-menu {
     flex-wrap: wrap;
