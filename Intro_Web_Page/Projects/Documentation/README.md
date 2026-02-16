@@ -1,93 +1,192 @@
-# COMP6000-2024-TaskManagementProductivity
+# Full-Stack Project Collaboration Platform (Project Pat)
 
+## Overview
+This project is a full-stack web-based project collaboration system built using Django REST Framework (DRF) and JavaScript (ES6).
 
+The application allows authenticated users to:
+Create and manage projects
+Assign members to projects
+Track project status (Ongoing → Completed)
+Enforce role-based access control
+Secure endpoints using JWT authentication
 
-## Getting started
+The system demonstrates backend API architecture, relational database design, secure authentication, and dynamic frontend–backend integration.
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+## Architecture
+The application follows a clear separation of concerns:
+Frontend (HTML / CSS / JavaScript)
+↓
+REST API Layer (Django REST Framework)
+↓
+Database Layer (SQLite via Django ORM)
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+Key architectural principles implemented:
+RESTful API design
+Token-based authentication (JWT)
+Role-based authorization
+Many-to-Many relational modeling
+Secure protected endpoints
+Asynchronous client-side API integration
 
-## Add your files
+## Features
+### Authentication & Security
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+JWT-based authentication
+Protected API endpoints using IsAuthenticated
+Authorization headers for secure API access
+Role-based access control:
+    Only project creators can add members
+    Only authenticated users can access projects
+Proper HTTP status handling (401, 404, etc.)
 
-```
-cd existing_repo
-git remote add origin https://git.cs.kent.ac.uk/oc/comp6000-2024-taskmanagementproductivity.git
-git branch -M main
-git push -uf origin main
-```
+### Project Management
 
-## Integrate with your tools
+Create new projects
+Update project status (Ongoing / Completed)
+Prevent reverting completed projects
+Dynamic project rendering on frontend
+Real-time UI updates after state changes
 
-- [ ] [Set up project integrations](https://git.cs.kent.ac.uk/oc/comp6000-2024-taskmanagementproductivity/-/settings/integrations)
+### Member Management
 
-## Collaborate with your team
+Many-to-Many relationship between Users and Projects
+Add members to projects (creator-only permission)
+Exclude existing members from selection dropdown
+Display project member count
+Owner identification inside project view
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+### Frontend Implementation
 
-## Test and Deploy
+Dynamic DOM rendering via Fetch API
+Async/Await API handling
+Modal-based UI using SweetAlert
+Event propagation control (event.stopPropagation)
+Conditional UI rendering based on user role
+Secure token storage via localStorage
 
-Use the built-in continuous integration in GitLab.
+## Technical Concepts Demonstrated
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+### Backend
 
-***
+Django REST Framework APIViews
+Serializer validation and structured JSON responses
+Permission classes (IsAuthenticated)
+Relational database modeling
+Query filtering and data transformation
+HTTP method handling (GET, POST, PUT)
 
-# Editing this README
+### Frontend
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+Fetch API with Authorization headers
+Template literals for dynamic HTML generation
+State management via API refresh
+Error handling and promise management
+Debugging asynchronous authentication issues
 
-## Suggestions for a good README
+### Database
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+Many-to-Many relationships
+ForeignKey ownership model (creator → project)
+ORM-based querying
+Normalized relational schema design
 
-## Name
-Choose a self-explaining name for your project.
+## Technology Stack
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+### Languages
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+Python
+JavaScript (ES6+)
+SQL
+HTML5
+CSS3
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+### Frameworks & Libraries
+
+Django
+Django REST Framework
+SimpleJWT
+SweetAlert2
+
+### Database
+
+SQLite
+
+### Tools
+
+Insomnia (API testing)
+Git
+Browser Developer Tools
+
+## API Endpoints
+Method	Endpoint	Description
+POST	/projects/create-project/	Create a new project
+GET	/projects/get-all-projects/	Retrieve all projects
+PUT	/projects/update-project/<id>/	Update project status
+GET	/projects/<id>/members/	Retrieve project members
+POST	/projects/<id>/add-member/	Add member to project
+GET	/projects/users/	Retrieve available users
+GET	/api/user-profile-drop/	Retrieve authenticated user
+
+All endpoints require JWT authentication.
 
 ## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+### 1. Clone Repository
+git clone https://github.com/yourusername/project-name.git
+cd project-name
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+### 2. Create Virtual Environment
+python -m venv venv
+source venv/bin/activate      (Mac/Linux)
+venv\Scripts\activate         (Windows)
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+### 3. Install Dependencies
+pip install -r requirements.txt
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+### 4. Apply Migrations
+python manage.py migrate
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+### 5. Run Development Server
+python manage.py runserver
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+Backend runs at:
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+http://127.0.0.1:8000/
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+## Authentication Flow
 
-## License
-For open source projects, say how it is licensed.
+1. User logs in
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+2. JWT access token is returned
+
+3. Token is stored in localStorage
+
+4. Token is attached to all API requests:
+
+Authorization: Bearer <access_token>
+
+5. Backend validates token before granting access
+
+## Challenges & Problem Solving
+
+Resolved JWT authentication issues (401 errors)
+Debugged frontend-backend routing mismatches (404 errors)
+Implemented conditional UI rendering based on authenticated user
+Prevented event collision between modal triggers and status toggles
+Ensured consistent API base URL configuration
+
+## Future Improvements
+
+Deploy to production (Render / Railway)
+Switch to PostgreSQL
+Add pagination and filtering
+Add project analytics dashboard
+Implement unit tests
+Dockerize application
+Add CI/CD pipeline
+
+Author
+
+Your Name Tolu
+GitHub: https://github.com/toluoshad
+
+LinkedIn: https://www.linkedin.com/in/tolu-oshadiya/
