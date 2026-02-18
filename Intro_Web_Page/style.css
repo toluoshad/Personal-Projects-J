@@ -255,6 +255,12 @@ nav {
   color: var(--muted);
 }
 
+.project-desc-list {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+
 .project-tags {
   list-style: none;
   padding-left: 0;
